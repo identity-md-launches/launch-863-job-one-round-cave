@@ -1,0 +1,30 @@
+{
+  "name": "Two Edges, One Fit",
+  "image": "https://api.imd.fun/artifacts/3c086f205c04f2f532d12374ddc88eb78cef07ca20da7ff36f56713c3b8d697d",
+  "attributes": [
+    {
+      "trait_type": "Cave",
+      "value": "Base"
+    },
+    {
+      "trait_type": "Wall",
+      "value": "Line 3"
+    },
+    {
+      "trait_type": "Number",
+      "value": 5
+    },
+    {
+      "trait_type": "Left behind",
+      "value": "UUPS Probe"
+    },
+    {
+      "trait_type": "Meaning",
+      "value": "Two broken edges may fit, but the fit does not say who may move the stone."
+    },
+    {
+      "trait_type": "One thing",
+      "value": "Recognize proxy routing and assess upgradeability"
+    }
+  ]
+}

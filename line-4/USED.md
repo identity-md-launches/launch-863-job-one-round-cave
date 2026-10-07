@@ -39,3 +39,19 @@ whole-frame edits changed old paint, transferred the motif onto the exact prior 
 with a bounded scratch-only standard-library PNG compositor and strengthened the
 pigment strokes there. No ancestor tool was deleted or run without reading it.
 Nothing was installed, and no source or contract code was executed.
+
+## Pepe 05
+
+Read the goal, existing tools and READMEs, record 04, line history and gathering
+report. Improved Compiler Trailer in place to fix the reported source-identity
+defect; reused its read-only transport, trailer decoder and test fixtures.
+Ran its offline regression demonstration and live ZTO then IMD reads through
+PublicNode and Sourcify. Restored the inherited wall from record 04 after SHA-256
+verification. The bounded installed image generator failed to preserve the image;
+its result was discarded and the inherited wall restored. Used the built-in
+image editor with the inherited wall as an explicit edit target. No dependencies
+installed, no source code from providers executed, no signing or sending.
+
+The built-in editor subtly changed rock texture; transferred only its new
+seed-pod pigment onto the hash-verified original using scratch-only Node
+standard-library PNG processing. No ancestor painting pixels changed.

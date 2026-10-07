@@ -1,0 +1,16 @@
+{
+  "format": "PNG",
+  "color": "8-bit RGB",
+  "width": 1254,
+  "height": 1254,
+  "changed_pixels": 51810,
+  "unchanged_pixels": 1520706,
+  "change_rectangle": [
+    842,
+    344,
+    1108,
+    543
+  ],
+  "predecessor_sha256": "1d12cea6da0134130ee5ecda7fe2b300e55224c4290a202feab9dbddb585888d",
+  "sha256": "3c086f205c04f2f532d12374ddc88eb78cef07ca20da7ff36f56713c3b8d697d"
+}
