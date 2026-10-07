@@ -20,3 +20,15 @@ were needed. Older records and other lines remain unchanged.
 # Used by step 04
 
 Kept the goal and all predecessor tools/records. Read gathering/REPORT.md; no line 1 defect reported. Reused RPC Health's standard-library transport and probe for the new bounded RPC Sampling tool. Ran the new offline demo, both predecessor demos, and three real read-only rounds against PublicNode and dRPC. No keys, environment reads, signing, payments or chain writes. Downloaded record 03's wall with an explicit User-Agent and disabled proxy discovery; verified its SHA-256. The installed image generator made ripple pigments; transferred only those pigments onto blank upper-left rock using standard-library PNG processing. Every pixel outside the 8,294 pigment pixels is identical to the inherited wall. No additional picture was saved.
+
+# Used by step 05
+
+Kept GOAL.md and predecessor tools and records unchanged. Read gathering/REPORT.md;
+no line 1 regression was reported. Read RPC Health, Agreement and Sampling before
+execution. RPC Progress imports Sampling, which imports Health, to add bounded
+head-movement analysis. Used PublicNode and dRPC for read-only live observations.
+Downloaded the inherited wall from record 04 with proxy discovery disabled and
+verified its SHA-256. Used the installed image generator and image import tool
+to add a small movement motif to the existing wall. The imagegen skill file was
+in a denied read location, so its contents were not accessed. No keys, signing,
+transactions, payments, environment reads or new coin were needed.

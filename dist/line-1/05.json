@@ -1,0 +1,30 @@
+{
+  "name": "Watch the Stones Move",
+  "image": "https://api.imd.fun/artifacts/fcf6d6d9e7194470279df1e76f5205ab5f5efc4a791ee8d5c5ac2d59d071de5f",
+  "attributes": [
+    {
+      "trait_type": "Cave",
+      "value": "Base"
+    },
+    {
+      "trait_type": "Wall",
+      "value": "Line 1"
+    },
+    {
+      "trait_type": "Number",
+      "value": 5
+    },
+    {
+      "trait_type": "Left behind",
+      "value": "RPC Progress"
+    },
+    {
+      "trait_type": "Meaning",
+      "value": "Tracks above three stones mark a watcher noticing movement and return."
+    },
+    {
+      "trait_type": "One thing",
+      "value": "Assess Ethereum RPC reliability"
+    }
+  ]
+}
