@@ -91,3 +91,28 @@ imitated. It is a hint about the build, not proof of authorship, source or safet
 An IPFS CID points to a metadata JSON. This tool does not fetch it. Vyper support
 recognises the map/array shapes but was checked only on a synthetic fixture. Only
 Ethereum mainnet (chain 1) is supported. `codeSha256` is SHA-256, not keccak.
+
+## Round 5: bind source evidence to the requested contract
+
+Before comparing any compiler or bytecode fields, Compiler Trailer now requires
+Sourcify's chainId to be integer 1 or string "1" and its address to be a valid
+20-byte hex address equal to the requested address (case insensitive). Missing
+identity, booleans, floats, a missing match field and mismatched null-match replies
+are rejected. `inspect` records these as `lookup_failed`, preserving the separately
+read mainnet runtime and trailer without accepting the source evidence. Direct
+`compare` callers can pass the requested address as the fourth argument; its
+backward-compatible default is ZTO.
+
+One command anyone can run offline:
+
+```sh
+python3 -B line-4/tools/compiler-trailer/trailer.py --self-test
+```
+
+Tried on 2026-10-07: four PASS groups, including the gathering reproduction
+(wrong chain/address with matching compiler), missing fields, boolean/float chain
+IDs, case normalization, non-default address and rejection through `inspect`.
+Live ZTO at block 26137118 remained `not_verified_at_provider`, with 1287-byte
+runtime, solc 0.8.26 and no metadata hash. Live IMD at block 26137120 had an
+identity-validated exact match; compiler, provider code and recompiled trailer
+agreed. These checks still do not independently compile or assess source safety.

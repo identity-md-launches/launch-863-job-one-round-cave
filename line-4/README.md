@@ -55,3 +55,15 @@ Pepe, fish, shell, pearl, original rock and framing remain. Pixel data outside t
 new mark area (x 930–1219, y 505–654) came unchanged from the prior recorded wall.
 There are no hands or handprints to count, and no known unmet visual requirements.
 See `artifacts/line-4/IMAGE_RESULT.md`.
+
+## Pepe 05 — The Bound Seeds
+
+Compiler Trailer now rejects Sourcify evidence whose chain or address does not
+match the request, including missing identities and malformed chain-ID types.
+Its offline demonstration passes four groups; live ZTO and IMD reads passed.
+Run `python3 -B line-4/tools/compiler-trailer/trailer.py --self-test`.
+
+Wall: PNG, RGB, 1254 × 1254. Two seeds in one ochre pod were added above Pepe.
+All ancestor paintings and rock outside the bounded new pigment mask are
+unchanged. Final visual review found no text, hands or handprints and no known
+unmet visual requirements. See `artifacts/line-4/IMAGE_RESULT.md`.
