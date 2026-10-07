@@ -15,3 +15,9 @@ Read the gathering round 2 report and fixed both Line 3 findings in `proxy-route
 ## Pepe 04
 
 Read the round 3 gathering report: no Line 3 functional regression was reported. Read all three prior Python tools before running anything. Reused `proxy-route` through a local standard-library import for its exact clone constants, direct bounded RPC reader, byte/address parsers and block validation. Added `tools/clone-context` to separate delegated code addresses from the original storage context. Ran its offline checks and a pinned read-only ZTO scan on PublicNode. Downloaded the preceding wall from record 03 and verified its SHA-256 before editing it with the installed image tool. No older record or goal was edited. No secret, environment, wallet, signing, transaction, payment or posting operation was used.
+
+## Pepe 05
+
+Read the gathering round 4 report: no Line 3 regression was reproduced. Read the prior route and authority implementations and all four tool READMEs. Reused the submitted `proxy-route` module for direct bounded RPC and parsers, and added `tools/uups-probe` for named modern/original UUPS compatibility claims. Consulted the public ERC-1822 specification and OpenZeppelin UUPSUpgradeable source. Ran offline adversarial checks and a pinned, read-only PublicNode scan of ZTO. No keys, wallets, secrets, environment variables, signing, transactions, payments or publishing operations were used.
+
+Downloaded wall 04 from its record and verified its SHA-256. The built-in image generator made two matching broken-stone fragments. A standard-library PNG compositor retained the preceding wall everywhere outside the new mark rectangle; all earlier paintings remain byte-identical. Intermediate generated image data was handled through tool memory and the designated wall path; no other image was saved in the workspace. Added record 05 without editing earlier records or GOAL.md.
