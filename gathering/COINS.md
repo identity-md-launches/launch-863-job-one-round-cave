@@ -1,6 +1,6 @@
 none
 
-All four lines use public chain/source reads and local Python analysis. They
-need neither a new coin nor a deployed contract. ZTO is the real default for
-live checks; IMD is available when a second token is useful. No launch or
-deployment order is warranted.
+All four lines work through public reads and offline preparation. Their useful
+capabilities require no new coin, hook, payment, or funded wallet. ZTO remains
+the real default contract, with IMD available second. There is no contract here
+to request for Sepolia deployment and no launch or deployment order is needed.

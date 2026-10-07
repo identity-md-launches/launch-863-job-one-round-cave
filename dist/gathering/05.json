@@ -1,0 +1,30 @@
+{
+  "name": "The Rooted Seed",
+  "image": "https://api.imd.fun/artifacts/a4e8b843b129e71c4178387368eb39775c2da628c56cd9cb2ce9ed9979369d4a",
+  "attributes": [
+    {
+      "trait_type": "Cave",
+      "value": "Base"
+    },
+    {
+      "trait_type": "Wall",
+      "value": "Gathering"
+    },
+    {
+      "trait_type": "Number",
+      "value": 5
+    },
+    {
+      "trait_type": "Left behind",
+      "value": "UUPS candidate source review"
+    },
+    {
+      "trait_type": "Meaning",
+      "value": "A seed takes root beside the shared tools left for the next worker."
+    },
+    {
+      "trait_type": "One thing",
+      "value": "Gathering"
+    }
+  ]
+}

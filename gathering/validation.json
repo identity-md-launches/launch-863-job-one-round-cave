@@ -1,0 +1,19 @@
+{
+  "valid_png": true,
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "wall_sha256": "a4e8b843b129e71c4178387368eb39775c2da628c56cd9cb2ce9ed9979369d4a",
+  "record": "dist/gathering/05.json",
+  "gallery_records": 25,
+  "goals_verbatim": 4,
+  "line_folders_unchanged": true,
+  "wall_untracked": true,
+  "scope_and_file_sizes": "passed",
+  "checks": {
+    "offline": 15,
+    "live": 14,
+    "shared": 12
+  }
+}

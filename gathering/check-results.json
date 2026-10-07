@@ -1,17 +1,5 @@
 {
-  "date": "2026-10-07",
   "offline": [
-    {
-      "command": [
-        "python3",
-        "-B",
-        "line-1/tools/rpc-health/probe.py",
-        "--demo"
-      ],
-      "exit": 0,
-      "stdout": "{\"demo\": \"passed\", \"checks\": [\"fresh\", \"stale\", \"wrong chain\", \"missing block\", \"bad hash\"]}\n",
-      "stderr": ""
-    },
     {
       "command": [
         "python3",
@@ -21,7 +9,32 @@
       ],
       "exit": 0,
       "stdout": "{\"demo\": \"passed\", \"cases\": {\"normal\": \"agreement\", \"fork\": \"disagreement\", \"lag\": \"lagging\", \"error\": \"inconclusive\", \"wrong-height\": \"inconclusive\", \"stale\": \"inconclusive\", \"wrong-chain\": \"inconclusive\"}, \"invalid_provider_sets_rejected_before_transport\": 7, \"generator_checked_in_both_passes\": true}\n",
-      "stderr": ""
+      "stderr": "",
+      "seconds": 0.06
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "line-1/tools/rpc-health/probe.py",
+        "--demo"
+      ],
+      "exit": 0,
+      "stdout": "{\"demo\": \"passed\", \"checks\": [\"fresh\", \"stale\", \"wrong chain\", \"missing block\", \"bad hash\"]}\n",
+      "stderr": "",
+      "seconds": 0.05
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "line-1/tools/rpc-progress/progress.py",
+        "--demo"
+      ],
+      "exit": 0,
+      "stdout": "{\"demo\": \"passed\", \"checks\": 13, \"covers\": \"repeats, progress, regressions, hash changes, gaps, stale data, case normalization, sampler integration\"}\n",
+      "stderr": "",
+      "seconds": 0.06
     },
     {
       "command": [
@@ -32,7 +45,8 @@
       ],
       "exit": 0,
       "stdout": "{\"demo\": \"passed\", \"checks\": [\"mixed health counts\", \"failure latency\", \"generator\", \"round waits\", \"single sample\", \"nine rejected inputs\"]}\n",
-      "stderr": ""
+      "stderr": "",
+      "seconds": 0.06
     },
     {
       "command": [
@@ -42,7 +56,8 @@
       ],
       "exit": 0,
       "stdout": "",
-      "stderr": "test_envelopes (__main__.PreviewChecks.test_envelopes) ... ok\ntest_returns (__main__.PreviewChecks.test_returns) ... ok\ntest_reverts (__main__.PreviewChecks.test_reverts) ... ok\ntest_size_and_json (__main__.PreviewChecks.test_size_and_json) ... ok\ntest_transport_read_bound (__main__.PreviewChecks.test_transport_read_bound) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.003s\n\nOK\n"
+      "stderr": "test_envelopes (__main__.PreviewChecks.test_envelopes) ... ok\ntest_returns (__main__.PreviewChecks.test_returns) ... ok\ntest_reverts (__main__.PreviewChecks.test_reverts) ... ok\ntest_size_and_json (__main__.PreviewChecks.test_size_and_json) ... ok\ntest_transport_read_bound (__main__.PreviewChecks.test_transport_read_bound) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.001s\n\nOK\n",
+      "seconds": 0.1
     },
     {
       "command": [
@@ -53,40 +68,19 @@
       ],
       "exit": 0,
       "stdout": "{\"self_test\": \"passed\", \"checks\": 19, \"failed\": []}\n",
-      "stderr": ""
+      "stderr": "",
+      "seconds": 0.19
     },
     {
       "command": [
         "python3",
         "-B",
-        "line-3/tools/proxy-route/proxy_route.py",
-        "--self-test"
+        "line-2/tools/typed_preview/check.py"
       ],
       "exit": 0,
-      "stdout": "PASS: routes, malformed slots, strict JSON-RPC envelope and block shape\n",
-      "stderr": ""
-    },
-    {
-      "command": [
-        "python3",
-        "-B",
-        "line-3/tools/proxy-authority/proxy_authority.py",
-        "--self-test"
-      ],
-      "exit": 0,
-      "stdout": "PASS: EIP-1967 admin/beacon, beacon authority, address words, strict envelopes, block shape\n",
-      "stderr": ""
-    },
-    {
-      "command": [
-        "python3",
-        "-B",
-        "line-3/tools/delegate-scan/delegate_scan.py",
-        "--self-test"
-      ],
-      "exit": 0,
-      "stdout": "PASS: push-data skipping, real delegatecall, minimal proxy, metadata trailer, truncated push, strict envelopes, block shape\n",
-      "stderr": ""
+      "stdout": "",
+      "stderr": "test_demo_offline (__main__.Checks.test_demo_offline) ... ok\ntest_dynamic_offsets (__main__.Checks.test_dynamic_offsets) ... ok\ntest_invalid_input_never_calls (__main__.Checks.test_invalid_input_never_calls) ... ok\ntest_live_dispatch_unchanged (__main__.Checks.test_live_dispatch_unchanged) ... ok\ntest_named_revert_unchanged (__main__.Checks.test_named_revert_unchanged) ... ok\ntest_transfer_fields (__main__.Checks.test_transfer_fields) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.069s\n\nOK\n",
+      "seconds": 0.17
     },
     {
       "command": [
@@ -97,7 +91,68 @@
       ],
       "exit": 0,
       "stdout": "PASS: clone chain, storage context, cycle, limit, empty target, exact match, pinned reads, reorg rejection\n",
-      "stderr": ""
+      "stderr": "",
+      "seconds": 0.09
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "line-3/tools/delegate-scan/delegate_scan.py",
+        "--self-test"
+      ],
+      "exit": 0,
+      "stdout": "PASS: push-data skipping, real delegatecall, minimal proxy, metadata trailer, truncated push, strict envelopes, block shape\n",
+      "stderr": "",
+      "seconds": 0.08
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "line-3/tools/proxy-authority/proxy_authority.py",
+        "--self-test"
+      ],
+      "exit": 0,
+      "stdout": "PASS: EIP-1967 admin/beacon, beacon authority, address words, strict envelopes, block shape\n",
+      "stderr": "",
+      "seconds": 0.09
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "line-3/tools/proxy-route/proxy_route.py",
+        "--self-test"
+      ],
+      "exit": 0,
+      "stdout": "PASS: routes, malformed slots, strict JSON-RPC envelope and block shape\n",
+      "stderr": "",
+      "seconds": 0.09
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "line-3/tools/uups-probe/uups_probe.py",
+        "--self-test"
+      ],
+      "exit": 0,
+      "stdout": "PASS: modern/legacy UUID, mismatch, malformed ABI, failed call, empty target, absent slots, direct bounded pinned calls, reorg and invalid hex rejection\n",
+      "stderr": "",
+      "seconds": 0.09
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "line-4/tools/compiler-trailer/trailer.py",
+        "--self-test"
+      ],
+      "exit": 0,
+      "stdout": "PASS: trailer decoding (ZTO none-hash, IMD ipfs CID, USDT bzzr0, Vyper array), base58, malformed rejection\nPASS: Sourcify cross-check agree, version/bytecode disagreement, partial metadata, sparse partial, unverified\nPASS: source identity guard, missing fields, strict chain types, case normalization, requested address, inspect rejection\nPASS: strict JSON-RPC ids, mainnet guard, block-hash pinned read, no proxy discovery, address validation\n",
+      "stderr": "",
+      "seconds": 0.22
     },
     {
       "command": [
@@ -108,18 +163,21 @@
       ],
       "exit": 0,
       "stdout": "PASS: no proxy discovery, bounded transport, structured 404, redirect rejection, address validation\nPASS: absent, matched, missing-source, mismatched identity, malformed payload, path-as-data\n",
-      "stderr": ""
+      "stderr": "",
+      "seconds": 0.21
     },
     {
       "command": [
         "python3",
         "-B",
-        "line-4/tools/compiler-trailer/trailer.py",
-        "--self-test"
+        "line-2/tools/typed_preview/typed_preview.py",
+        "--demo",
+        "--encode-only"
       ],
       "exit": 0,
-      "stdout": "PASS: trailer decoding (ZTO none-hash, IMD ipfs CID, USDT bzzr0, Vyper array), base58, malformed rejection\nPASS: Sourcify cross-check agree, version/bytecode disagreement, partial metadata, sparse partial, unverified\nPASS: strict JSON-RPC ids, mainnet guard, block-hash pinned read, no proxy discovery, address validation\n",
-      "stderr": ""
+      "stdout": "{\n  \"method\": \"eth_call\",\n  \"sent\": false,\n  \"block\": \"latest\",\n  \"signature\": \"balanceOf(address)\",\n  \"return_types\": [\n    \"uint256\"\n  ],\n  \"transaction\": {\n    \"to\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n    \"data\": \"0x70a082310000000000000000000000000000000000000000000000000000000000000001\",\n    \"value\": \"0x0\"\n  },\n  \"status\": \"prepared\",\n  \"previewed\": false,\n  \"request\": {\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"eth_call\",\n    \"params\": [\n      {\n        \"to\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n        \"data\": \"0x70a082310000000000000000000000000000000000000000000000000000000000000001\",\n        \"value\": \"0x0\"\n      },\n      \"latest\"\n    ]\n  }\n}\n",
+      "stderr": "",
+      "seconds": 0.07
     }
   ],
   "live": [
@@ -127,35 +185,45 @@
       "command": [
         "python3",
         "-B",
-        "line-1/tools/rpc-health/probe.py"
-      ],
-      "exit": 0,
-      "stdout": "{\n  \"observations\": [\n    {\n      \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n      \"latency_ms\": 520.97,\n      \"status\": \"fresh\",\n      \"chain_id\": 1,\n      \"block_number\": 26136920,\n      \"block_hash\": \"0x7beab3a449efbcf14bc84252efdf6a3086226da83ff23a5a0675b7292f9e6e10\",\n      \"age_seconds\": 12.59\n    },\n    {\n      \"endpoint\": \"https://eth.drpc.org\",\n      \"latency_ms\": 272.97,\n      \"status\": \"fresh\",\n      \"chain_id\": 1,\n      \"block_number\": 26136920,\n      \"block_hash\": \"0x7beab3a449efbcf14bc84252efdf6a3086226da83ff23a5a0675b7292f9e6e10\",\n      \"age_seconds\": 12.86\n    }\n  ]\n}\n",
-      "stderr": ""
-    },
-    {
-      "command": [
-        "python3",
-        "-B",
         "line-1/tools/rpc-agreement/compare.py"
       ],
       "exit": 0,
-      "stdout": "{\n  \"status\": \"agreement\",\n  \"observations\": [\n    {\n      \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n      \"status\": \"fresh\",\n      \"chain_id\": 1,\n      \"block_number\": 26136920,\n      \"block_hash\": \"0x7beab3a449efbcf14bc84252efdf6a3086226da83ff23a5a0675b7292f9e6e10\",\n      \"age_seconds\": 12.09\n    },\n    {\n      \"endpoint\": \"https://eth.drpc.org\",\n      \"status\": \"fresh\",\n      \"chain_id\": 1,\n      \"block_number\": 26136920,\n      \"block_hash\": \"0x7beab3a449efbcf14bc84252efdf6a3086226da83ff23a5a0675b7292f9e6e10\",\n      \"age_seconds\": 12.09\n    }\n  ],\n  \"common_height\": 26136920,\n  \"head_spread\": 0,\n  \"common_blocks\": [\n    {\n      \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n      \"status\": \"fresh\",\n      \"chain_id\": 1,\n      \"block_number\": 26136920,\n      \"block_hash\": \"0x7beab3a449efbcf14bc84252efdf6a3086226da83ff23a5a0675b7292f9e6e10\",\n      \"age_seconds\": 12.09\n    },\n    {\n      \"endpoint\": \"https://eth.drpc.org\",\n      \"status\": \"fresh\",\n      \"chain_id\": 1,\n      \"block_number\": 26136920,\n      \"block_hash\": \"0x7beab3a449efbcf14bc84252efdf6a3086226da83ff23a5a0675b7292f9e6e10\",\n      \"age_seconds\": 12.09\n    }\n  ]\n}\n",
-      "stderr": ""
+      "stdout": "{\n  \"status\": \"agreement\",\n  \"observations\": [\n    {\n      \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n      \"status\": \"fresh\",\n      \"chain_id\": 1,\n      \"block_number\": 26137137,\n      \"block_hash\": \"0xb0d8c0c58c4811af6b6b8c0c983addde8bdf7b168e584b4df031b6a8c219c6ed\",\n      \"age_seconds\": 2.07\n    },\n    {\n      \"endpoint\": \"https://eth.drpc.org\",\n      \"status\": \"fresh\",\n      \"chain_id\": 1,\n      \"block_number\": 26137137,\n      \"block_hash\": \"0xb0d8c0c58c4811af6b6b8c0c983addde8bdf7b168e584b4df031b6a8c219c6ed\",\n      \"age_seconds\": 2.07\n    }\n  ],\n  \"common_height\": 26137137,\n  \"head_spread\": 0,\n  \"common_blocks\": [\n    {\n      \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n      \"status\": \"fresh\",\n      \"chain_id\": 1,\n      \"block_number\": 26137137,\n      \"block_hash\": \"0xb0d8c0c58c4811af6b6b8c0c983addde8bdf7b168e584b4df031b6a8c219c6ed\",\n      \"age_seconds\": 2.07\n    },\n    {\n      \"endpoint\": \"https://eth.drpc.org\",\n      \"status\": \"fresh\",\n      \"chain_id\": 1,\n      \"block_number\": 26137137,\n      \"block_hash\": \"0xb0d8c0c58c4811af6b6b8c0c983addde8bdf7b168e584b4df031b6a8c219c6ed\",\n      \"age_seconds\": 2.07\n    }\n  ]\n}\n",
+      "stderr": "",
+      "seconds": 0.46
     },
     {
       "command": [
         "python3",
         "-B",
-        "line-1/tools/rpc-sampling/sample.py",
-        "--rounds",
-        "3",
-        "--interval",
-        "0"
+        "line-1/tools/rpc-health/probe.py"
       ],
       "exit": 0,
-      "stdout": "{\n  \"status\": \"all_fresh\",\n  \"interval_after_each_round_seconds\": 0.0,\n  \"reports\": [\n    {\n      \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n      \"samples\": 3,\n      \"fresh_samples\": 3,\n      \"fresh_fraction\": 1.0,\n      \"stale_samples\": 0,\n      \"error_samples\": 0,\n      \"latency_p95_ms\": 692.49,\n      \"max_latency_ms\": 692.49,\n      \"observations\": [\n        {\n          \"sample\": 1,\n          \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n          \"latency_ms\": 692.49,\n          \"status\": \"fresh\",\n          \"chain_id\": 1,\n          \"block_number\": 26136920,\n          \"block_hash\": \"0x7beab3a449efbcf14bc84252efdf6a3086226da83ff23a5a0675b7292f9e6e10\",\n          \"age_seconds\": 12.77\n        },\n        {\n          \"sample\": 2,\n          \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n          \"latency_ms\": 399.61,\n          \"status\": \"fresh\",\n          \"chain_id\": 1,\n          \"block_number\": 26136920,\n          \"block_hash\": \"0x7beab3a449efbcf14bc84252efdf6a3086226da83ff23a5a0675b7292f9e6e10\",\n          \"age_seconds\": 13.5\n        },\n        {\n          \"sample\": 3,\n          \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n          \"latency_ms\": 496.3,\n          \"status\": \"fresh\",\n          \"chain_id\": 1,\n          \"block_number\": 26136921,\n          \"block_hash\": \"0x2755ff8175f94a2b7b927f1e4312eb48aeb200e62c818b960c79b03e5b6b0b7c\",\n          \"age_seconds\": 2.26\n        }\n      ]\n    },\n    {\n      \"endpoint\": \"https://eth.drpc.org\",\n      \"samples\": 3,\n      \"fresh_samples\": 3,\n      \"fresh_fraction\": 1.0,\n      \"stale_samples\": 0,\n      \"error_samples\": 0,\n      \"latency_p95_ms\": 334.82,\n      \"max_latency_ms\": 334.82,\n      \"observations\": [\n        {\n          \"sample\": 1,\n          \"endpoint\": \"https://eth.drpc.org\",\n          \"latency_ms\": 334.82,\n          \"status\": \"fresh\",\n          \"chain_id\": 1,\n          \"block_number\": 26136920,\n          \"block_hash\": \"0x7beab3a449efbcf14bc84252efdf6a3086226da83ff23a5a0675b7292f9e6e10\",\n          \"age_seconds\": 13.1\n        },\n        {\n          \"sample\": 2,\n          \"endpoint\": \"https://eth.drpc.org\",\n          \"latency_ms\": 257.31,\n          \"status\": \"fresh\",\n          \"chain_id\": 1,\n          \"block_number\": 26136920,\n          \"block_hash\": \"0x7beab3a449efbcf14bc84252efdf6a3086226da83ff23a5a0675b7292f9e6e10\",\n          \"age_seconds\": 13.76\n        },\n        {\n          \"sample\": 3,\n          \"endpoint\": \"https://eth.drpc.org\",\n          \"latency_ms\": 218.38,\n          \"status\": \"fresh\",\n          \"chain_id\": 1,\n          \"block_number\": 26136921,\n          \"block_hash\": \"0x2755ff8175f94a2b7b927f1e4312eb48aeb200e62c818b960c79b03e5b6b0b7c\",\n          \"age_seconds\": 2.47\n        }\n      ]\n    }\n  ]\n}\n",
-      "stderr": ""
+      "stdout": "{\n  \"observations\": [\n    {\n      \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n      \"latency_ms\": 105.57,\n      \"status\": \"fresh\",\n      \"chain_id\": 1,\n      \"block_number\": 26137137,\n      \"block_hash\": \"0xb0d8c0c58c4811af6b6b8c0c983addde8bdf7b168e584b4df031b6a8c219c6ed\",\n      \"age_seconds\": 2.17\n    },\n    {\n      \"endpoint\": \"https://eth.drpc.org\",\n      \"latency_ms\": 158.43,\n      \"status\": \"fresh\",\n      \"chain_id\": 1,\n      \"block_number\": 26137136,\n      \"block_hash\": \"0xafa8cbc752fb89bb2114e6384669f109118b127e68b501f09b004a75b02403cd\",\n      \"age_seconds\": 14.33\n    }\n  ]\n}\n",
+      "stderr": "",
+      "seconds": 0.33
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "line-1/tools/rpc-progress/progress.py"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"status\": \"advance_observed\",\n  \"interval_after_each_round_seconds\": 13,\n  \"reports\": [\n    {\n      \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n      \"samples\": 3,\n      \"fresh_samples\": 3,\n      \"fresh_fraction\": 1.0,\n      \"stale_samples\": 0,\n      \"error_samples\": 0,\n      \"latency_p95_ms\": 124.6,\n      \"max_latency_ms\": 124.6,\n      \"observations\": [\n        {\n          \"sample\": 1,\n          \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n          \"latency_ms\": 124.6,\n          \"status\": \"fresh\",\n          \"chain_id\": 1,\n          \"block_number\": 26137137,\n          \"block_hash\": \"0xb0d8c0c58c4811af6b6b8c0c983addde8bdf7b168e584b4df031b6a8c219c6ed\",\n          \"age_seconds\": 2.2\n        },\n        {\n          \"sample\": 2,\n          \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n          \"latency_ms\": 113.11,\n          \"status\": \"fresh\",\n          \"chain_id\": 1,\n          \"block_number\": 26137138,\n          \"block_hash\": \"0x8826fd1d0c18529f61e84309474d947a5eff1b88628190f0a901f855be1608f7\",\n          \"age_seconds\": 3.46\n        },\n        {\n          \"sample\": 3,\n          \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n          \"latency_ms\": 122.0,\n          \"status\": \"fresh\",\n          \"chain_id\": 1,\n          \"block_number\": 26137139,\n          \"block_hash\": \"0x790266fb15889f49c0b291ebbb4d2635f3588a80b3796aa90e613087aa1f6f2f\",\n          \"age_seconds\": 4.71\n        }\n      ],\n      \"progress\": {\n        \"status\": \"advance_observed\",\n        \"valid_samples\": 3,\n        \"error_samples\": 0,\n        \"stale_samples\": 0,\n        \"advancing_transitions\": 2,\n        \"identical_consecutive_transitions\": 0,\n        \"longest_identical_run_samples\": 1,\n        \"events\": []\n      }\n    },\n    {\n      \"endpoint\": \"https://eth.drpc.org\",\n      \"samples\": 3,\n      \"fresh_samples\": 3,\n      \"fresh_fraction\": 1.0,\n      \"stale_samples\": 0,\n      \"error_samples\": 0,\n      \"latency_p95_ms\": 146.66,\n      \"max_latency_ms\": 146.66,\n      \"observations\": [\n        {\n          \"sample\": 1,\n          \"endpoint\": \"https://eth.drpc.org\",\n          \"latency_ms\": 146.66,\n          \"status\": \"fresh\",\n          \"chain_id\": 1,\n          \"block_number\": 26137137,\n          \"block_hash\": \"0xb0d8c0c58c4811af6b6b8c0c983addde8bdf7b168e584b4df031b6a8c219c6ed\",\n          \"age_seconds\": 2.34\n        },\n        {\n          \"sample\": 2,\n          \"endpoint\": \"https://eth.drpc.org\",\n          \"latency_ms\": 131.43,\n          \"status\": \"fresh\",\n          \"chain_id\": 1,\n          \"block_number\": 26137138,\n          \"block_hash\": \"0x8826fd1d0c18529f61e84309474d947a5eff1b88628190f0a901f855be1608f7\",\n          \"age_seconds\": 3.59\n        },\n        {\n          \"sample\": 3,\n          \"endpoint\": \"https://eth.drpc.org\",\n          \"latency_ms\": 145.63,\n          \"status\": \"fresh\",\n          \"chain_id\": 1,\n          \"block_number\": 26137139,\n          \"block_hash\": \"0x790266fb15889f49c0b291ebbb4d2635f3588a80b3796aa90e613087aa1f6f2f\",\n          \"age_seconds\": 4.86\n        }\n      ],\n      \"progress\": {\n        \"status\": \"advance_observed\",\n        \"valid_samples\": 3,\n        \"error_samples\": 0,\n        \"stale_samples\": 0,\n        \"advancing_transitions\": 2,\n        \"identical_consecutive_transitions\": 0,\n        \"longest_identical_run_samples\": 1,\n        \"events\": []\n      }\n    }\n  ]\n}\n",
+      "stderr": "",
+      "seconds": 26.85
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "line-1/tools/rpc-sampling/sample.py"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"status\": \"all_fresh\",\n  \"interval_after_each_round_seconds\": 1,\n  \"reports\": [\n    {\n      \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n      \"samples\": 3,\n      \"fresh_samples\": 3,\n      \"fresh_fraction\": 1.0,\n      \"stale_samples\": 0,\n      \"error_samples\": 0,\n      \"latency_p95_ms\": 115.75,\n      \"max_latency_ms\": 115.75,\n      \"observations\": [\n        {\n          \"sample\": 1,\n          \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n          \"latency_ms\": 104.96,\n          \"status\": \"fresh\",\n          \"chain_id\": 1,\n          \"block_number\": 26137137,\n          \"block_hash\": \"0xb0d8c0c58c4811af6b6b8c0c983addde8bdf7b168e584b4df031b6a8c219c6ed\",\n          \"age_seconds\": 2.5\n        },\n        {\n          \"sample\": 2,\n          \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n          \"latency_ms\": 115.75,\n          \"status\": \"fresh\",\n          \"chain_id\": 1,\n          \"block_number\": 26137137,\n          \"block_hash\": \"0xb0d8c0c58c4811af6b6b8c0c983addde8bdf7b168e584b4df031b6a8c219c6ed\",\n          \"age_seconds\": 3.74\n        },\n        {\n          \"sample\": 3,\n          \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n          \"latency_ms\": 107.39,\n          \"status\": \"fresh\",\n          \"chain_id\": 1,\n          \"block_number\": 26137137,\n          \"block_hash\": \"0xb0d8c0c58c4811af6b6b8c0c983addde8bdf7b168e584b4df031b6a8c219c6ed\",\n          \"age_seconds\": 4.97\n        }\n      ]\n    },\n    {\n      \"endpoint\": \"https://eth.drpc.org\",\n      \"samples\": 3,\n      \"fresh_samples\": 3,\n      \"fresh_fraction\": 1.0,\n      \"stale_samples\": 0,\n      \"error_samples\": 0,\n      \"latency_p95_ms\": 169.09,\n      \"max_latency_ms\": 169.09,\n      \"observations\": [\n        {\n          \"sample\": 1,\n          \"endpoint\": \"https://eth.drpc.org\",\n          \"latency_ms\": 126.46,\n          \"status\": \"fresh\",\n          \"chain_id\": 1,\n          \"block_number\": 26137137,\n          \"block_hash\": \"0xb0d8c0c58c4811af6b6b8c0c983addde8bdf7b168e584b4df031b6a8c219c6ed\",\n          \"age_seconds\": 2.62\n        },\n        {\n          \"sample\": 2,\n          \"endpoint\": \"https://eth.drpc.org\",\n          \"latency_ms\": 127.54,\n          \"status\": \"fresh\",\n          \"chain_id\": 1,\n          \"block_number\": 26137137,\n          \"block_hash\": \"0xb0d8c0c58c4811af6b6b8c0c983addde8bdf7b168e584b4df031b6a8c219c6ed\",\n          \"age_seconds\": 3.86\n        },\n        {\n          \"sample\": 3,\n          \"endpoint\": \"https://eth.drpc.org\",\n          \"latency_ms\": 169.09,\n          \"status\": \"fresh\",\n          \"chain_id\": 1,\n          \"block_number\": 26137137,\n          \"block_hash\": \"0xb0d8c0c58c4811af6b6b8c0c983addde8bdf7b168e584b4df031b6a8c219c6ed\",\n          \"age_seconds\": 5.14\n        }\n      ]\n    }\n  ]\n}\n",
+      "stderr": "",
+      "seconds": 2.81
     },
     {
       "command": [
@@ -166,7 +234,8 @@
       ],
       "exit": 0,
       "stdout": "{\n  \"method\": \"eth_call\",\n  \"block\": \"latest\",\n  \"transaction\": {\n    \"to\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n    \"data\": \"0xa9059cbb000000000000000000000000000000000004444c5dc75cb358380d2e3de08a900000000000000000000000000000000000000000000000000000000000000001\",\n    \"value\": \"0x0\",\n    \"from\": \"0x0000000000000000000000000000000000000001\"\n  },\n  \"sent\": false,\n  \"status\": \"reverted\",\n  \"error\": {\n    \"message\": \"execution reverted\",\n    \"data\": \"0xdb42144d000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001\",\n    \"decoded\": {\n      \"kind\": \"custom_or_unknown_error\",\n      \"selector\": \"0xdb42144d\"\n    }\n  }\n}\n",
-      "stderr": ""
+      "stderr": "",
+      "seconds": 0.12
     },
     {
       "command": [
@@ -176,8 +245,9 @@
         "--demo"
       ],
       "exit": 0,
-      "stdout": "{\n  \"sent\": false,\n  \"preview\": {\n    \"transaction\": {\n      \"to\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n      \"from\": \"0x0000000000000000000000000000000000000001\",\n      \"data\": \"0xa9059cbb000000000000000000000000000000000004444c5dc75cb358380d2e3de08a900000000000000000000000000000000000000000000000000000000000000001\",\n      \"value\": \"0x0\"\n    },\n    \"block\": 26136920,\n    \"status\": \"reverted\",\n    \"rpc_message\": \"execution reverted\"\n  },\n  \"revert\": {\n    \"selector\": \"0xdb42144d\",\n    \"argument_bytes\": 96,\n    \"matches\": [\n      {\n        \"signature\": \"InsufficientBalance(address,uint256,uint256)\",\n        \"source\": \"Unprefixed token errors (seen in ZTO bytecode)\",\n        \"args\": [\n          \"0x0000000000000000000000000000000000000001\",\n          \"0\",\n          \"1\"\n        ],\n        \"decoded\": true\n      }\n    ]\n  },\n  \"code\": {\n    \"address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n    \"block\": \"0x18ed158\",\n    \"code_bytes\": 1287,\n    \"catalog_errors_in_code\": [\n      \"InsufficientBalance(address,uint256,uint256)\",\n      \"InvalidReceiver(address)\"\n    ],\n    \"selector_in_code\": true\n  }\n}\n",
-      "stderr": ""
+      "stdout": "{\n  \"sent\": false,\n  \"preview\": {\n    \"transaction\": {\n      \"to\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n      \"from\": \"0x0000000000000000000000000000000000000001\",\n      \"data\": \"0xa9059cbb000000000000000000000000000000000004444c5dc75cb358380d2e3de08a900000000000000000000000000000000000000000000000000000000000000001\",\n      \"value\": \"0x0\"\n    },\n    \"block\": 26137137,\n    \"status\": \"reverted\",\n    \"rpc_message\": \"execution reverted\"\n  },\n  \"revert\": {\n    \"selector\": \"0xdb42144d\",\n    \"argument_bytes\": 96,\n    \"matches\": [\n      {\n        \"signature\": \"InsufficientBalance(address,uint256,uint256)\",\n        \"source\": \"Unprefixed token errors (seen in ZTO bytecode)\",\n        \"args\": [\n          \"0x0000000000000000000000000000000000000001\",\n          \"0\",\n          \"1\"\n        ],\n        \"decoded\": true\n      }\n    ]\n  },\n  \"code\": {\n    \"address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n    \"block\": \"0x18ed231\",\n    \"code_bytes\": 1287,\n    \"catalog_errors_in_code\": [\n      \"InsufficientBalance(address,uint256,uint256)\",\n      \"InvalidReceiver(address)\"\n    ],\n    \"selector_in_code\": true\n  }\n}\n",
+      "stderr": "",
+      "seconds": 0.3
     },
     {
       "command": [
@@ -188,37 +258,8 @@
       ],
       "exit": 0,
       "stdout": "{\n  \"method\": \"eth_call\",\n  \"sent\": false,\n  \"block\": \"latest\",\n  \"signature\": \"balanceOf(address)\",\n  \"return_types\": [\n    \"uint256\"\n  ],\n  \"transaction\": {\n    \"to\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n    \"data\": \"0x70a082310000000000000000000000000000000000000000000000000000000000000001\",\n    \"value\": \"0x0\"\n  },\n  \"status\": \"succeeded\",\n  \"return_data\": \"0x0000000000000000000000000000000000000000000000000000000000000000\",\n  \"decoded_return\": [\n    \"0\"\n  ]\n}\n",
-      "stderr": ""
-    },
-    {
-      "command": [
-        "python3",
-        "-B",
-        "line-3/tools/proxy-route/proxy_route.py"
-      ],
-      "exit": 0,
-      "stdout": "{\n  \"chain_id\": 1,\n  \"address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n  \"block_number\": 26136921,\n  \"block_hash\": \"0x2755ff8175f94a2b7b927f1e4312eb48aeb200e62c818b960c79b03e5b6b0b7c\",\n  \"raw_slots\": {\n    \"implementation\": \"0x0000000000000000000000000000000000000000000000000000000000000000\",\n    \"beacon\": \"0x0000000000000000000000000000000000000000000000000000000000000000\"\n  },\n  \"code_bytes\": 1287,\n  \"routes\": {\n    \"implementation\": null,\n    \"beacon\": null\n  },\n  \"assessment\": \"no recognized proxy routing indicators\",\n  \"limitations\": \"Indicators are not proof of dispatch. Absence does not prove immutability; custom proxies, diamonds and upgrade authorization require further inspection.\",\n  \"targets\": {}\n}\n",
-      "stderr": ""
-    },
-    {
-      "command": [
-        "python3",
-        "-B",
-        "line-3/tools/proxy-authority/proxy_authority.py"
-      ],
-      "exit": 0,
-      "stdout": "{\n  \"chain_id\": 1,\n  \"address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n  \"block_number\": 26136921,\n  \"block_hash\": \"0x2755ff8175f94a2b7b927f1e4312eb48aeb200e62c818b960c79b03e5b6b0b7c\",\n  \"raw_slots\": {\n    \"admin\": \"0x0000000000000000000000000000000000000000000000000000000000000000\",\n    \"beacon\": \"0x0000000000000000000000000000000000000000000000000000000000000000\"\n  },\n  \"admin\": null,\n  \"beacon\": null,\n  \"authority_candidates\": [],\n  \"beacon_implementation\": null,\n  \"assessment\": \"no EIP-1967 admin or beacon authority was observed\",\n  \"limitations\": \"This is evidence, not proof of upgrade authorization or immutability. Custom proxies, diamonds, multisigs, timelocks and access-control rules require separate inspection. owner() is only a reported return value.\"\n}\n",
-      "stderr": ""
-    },
-    {
-      "command": [
-        "python3",
-        "-B",
-        "line-3/tools/delegate-scan/delegate_scan.py"
-      ],
-      "exit": 0,
-      "stdout": "{\n  \"chain_id\": 1,\n  \"address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n  \"block_number\": 26136921,\n  \"block_hash\": \"0x2755ff8175f94a2b7b927f1e4312eb48aeb200e62c818b960c79b03e5b6b0b7c\",\n  \"code_bytes\": 1287,\n  \"instructions\": 876,\n  \"jumpdests\": 51,\n  \"metadata_offset\": 1275,\n  \"watched_opcodes\": {},\n  \"verdict\": \"proven: code can never execute DELEGATECALL or CALLCODE; its logic cannot be swapped by delegation\",\n  \"notes\": [\n    \"SELFDESTRUCT after EIP-6780 (Cancun) only removes code when called in the creating transaction, so it no longer enables destroy-and-redeploy of an existing contract.\",\n    \"CREATE/CREATE2 mean the contract can deploy others; it does not change its own code.\",\n    \"Proof covers this code only: called contracts, owner powers and storage-driven behaviour (fees, pauses, blacklists) are not covered.\"\n  ]\n}\n",
-      "stderr": ""
+      "stderr": "",
+      "seconds": 0.14
     },
     {
       "command": [
@@ -227,8 +268,64 @@
         "line-3/tools/clone-context/clone_context.py"
       ],
       "exit": 0,
-      "stdout": "{\n  \"chain_id\": 1,\n  \"address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n  \"block_number\": 26136921,\n  \"block_hash\": \"0x2755ff8175f94a2b7b927f1e4312eb48aeb200e62c818b960c79b03e5b6b0b7c\",\n  \"nodes\": [\n    {\n      \"code_address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n      \"storage_address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n      \"code_bytes\": 1287,\n      \"exact_clone_target\": null\n    }\n  ],\n  \"stop\": \"not_exact_clone\",\n  \"next_code_address\": null,\n  \"context_raw_slots\": {\n    \"implementation\": \"0x0000000000000000000000000000000000000000000000000000000000000000\",\n    \"beacon\": \"0x0000000000000000000000000000000000000000000000000000000000000000\"\n  },\n  \"context_route_candidates\": {\n    \"implementation\": null,\n    \"beacon\": null\n  },\n  \"limitations\": \"Only exact 45-byte EIP-1167 runtime targets are followed. A target is not proof of successful execution. Slots belong to the original storage context; their values do not prove dispatch. Terminal custom proxies, beacon getters, authority and called contracts are not resolved. Cycles and limits are incomplete scans; RPC evidence requires an honest provider.\"\n}\n",
-      "stderr": ""
+      "stdout": "{\n  \"chain_id\": 1,\n  \"address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n  \"block_number\": 26137137,\n  \"block_hash\": \"0xb0d8c0c58c4811af6b6b8c0c983addde8bdf7b168e584b4df031b6a8c219c6ed\",\n  \"nodes\": [\n    {\n      \"code_address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n      \"storage_address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n      \"code_bytes\": 1287,\n      \"exact_clone_target\": null\n    }\n  ],\n  \"stop\": \"not_exact_clone\",\n  \"next_code_address\": null,\n  \"context_raw_slots\": {\n    \"implementation\": \"0x0000000000000000000000000000000000000000000000000000000000000000\",\n    \"beacon\": \"0x0000000000000000000000000000000000000000000000000000000000000000\"\n  },\n  \"context_route_candidates\": {\n    \"implementation\": null,\n    \"beacon\": null\n  },\n  \"limitations\": \"Only exact 45-byte EIP-1167 runtime targets are followed. A target is not proof of successful execution. Slots belong to the original storage context; their values do not prove dispatch. Terminal custom proxies, beacon getters, authority and called contracts are not resolved. Cycles and limits are incomplete scans; RPC evidence requires an honest provider.\"\n}\n",
+      "stderr": "",
+      "seconds": 0.31
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "line-3/tools/delegate-scan/delegate_scan.py"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"chain_id\": 1,\n  \"address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n  \"block_number\": 26137137,\n  \"block_hash\": \"0xb0d8c0c58c4811af6b6b8c0c983addde8bdf7b168e584b4df031b6a8c219c6ed\",\n  \"code_bytes\": 1287,\n  \"instructions\": 876,\n  \"jumpdests\": 51,\n  \"metadata_offset\": 1275,\n  \"watched_opcodes\": {},\n  \"verdict\": \"proven: code can never execute DELEGATECALL or CALLCODE; its logic cannot be swapped by delegation\",\n  \"notes\": [\n    \"SELFDESTRUCT after EIP-6780 (Cancun) only removes code when called in the creating transaction, so it no longer enables destroy-and-redeploy of an existing contract.\",\n    \"CREATE/CREATE2 mean the contract can deploy others; it does not change its own code.\",\n    \"Proof covers this code only: called contracts, owner powers and storage-driven behaviour (fees, pauses, blacklists) are not covered.\"\n  ]\n}\n",
+      "stderr": "",
+      "seconds": 0.24
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "line-3/tools/proxy-authority/proxy_authority.py"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"chain_id\": 1,\n  \"address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n  \"block_number\": 26137137,\n  \"block_hash\": \"0xb0d8c0c58c4811af6b6b8c0c983addde8bdf7b168e584b4df031b6a8c219c6ed\",\n  \"raw_slots\": {\n    \"admin\": \"0x0000000000000000000000000000000000000000000000000000000000000000\",\n    \"beacon\": \"0x0000000000000000000000000000000000000000000000000000000000000000\"\n  },\n  \"admin\": null,\n  \"beacon\": null,\n  \"authority_candidates\": [],\n  \"beacon_implementation\": null,\n  \"assessment\": \"no EIP-1967 admin or beacon authority was observed\",\n  \"limitations\": \"This is evidence, not proof of upgrade authorization or immutability. Custom proxies, diamonds, multisigs, timelocks and access-control rules require separate inspection. owner() is only a reported return value.\"\n}\n",
+      "stderr": "",
+      "seconds": 0.29
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "line-3/tools/proxy-route/proxy_route.py"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"chain_id\": 1,\n  \"address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n  \"block_number\": 26137137,\n  \"block_hash\": \"0xb0d8c0c58c4811af6b6b8c0c983addde8bdf7b168e584b4df031b6a8c219c6ed\",\n  \"raw_slots\": {\n    \"implementation\": \"0x0000000000000000000000000000000000000000000000000000000000000000\",\n    \"beacon\": \"0x0000000000000000000000000000000000000000000000000000000000000000\"\n  },\n  \"code_bytes\": 1287,\n  \"routes\": {\n    \"implementation\": null,\n    \"beacon\": null\n  },\n  \"assessment\": \"no recognized proxy routing indicators\",\n  \"limitations\": \"Indicators are not proof of dispatch. Absence does not prove immutability; custom proxies, diamonds and upgrade authorization require further inspection.\",\n  \"targets\": {}\n}\n",
+      "stderr": "",
+      "seconds": 0.31
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "line-3/tools/uups-probe/uups_probe.py"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"chain_id\": 1,\n  \"address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n  \"block_number\": 26137137,\n  \"block_hash\": \"0xb0d8c0c58c4811af6b6b8c0c983addde8bdf7b168e584b4df031b6a8c219c6ed\",\n  \"code_bytes\": 1287,\n  \"raw_slots\": {\n    \"eip1967\": \"0x0000000000000000000000000000000000000000000000000000000000000000\",\n    \"erc1822_original\": \"0x0000000000000000000000000000000000000000000000000000000000000000\"\n  },\n  \"candidates\": [],\n  \"assessment\": \"no implementation in either recognized slot; no UUID call made\",\n  \"limitations\": \"A UUID response is an untrusted compatibility claim, not proof of dispatch, upgrade authorization, storage-layout safety or future upgradeability. A revert, empty slot or different UUID does not prove immutability. Custom routers, beacon targets and clone chains are not resolved. Calls run directly on candidate implementations, not through the proxy. Provider honesty and block-hash recheck races remain.\"\n}\n",
+      "stderr": "",
+      "seconds": 0.31
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "line-4/tools/compiler-trailer/trailer.py"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n  \"block\": {\n    \"hash\": \"0xb0d8c0c58c4811af6b6b8c0c983addde8bdf7b168e584b4df031b6a8c219c6ed\",\n    \"number\": 26137137\n  },\n  \"chainId\": 1,\n  \"codeSha256\": \"7d6c46f53a4441c9b7d4cf3d00ff7b28bd31a84dbc9d18a8ebcce33b1e8b34fb\",\n  \"codeSize\": 1287,\n  \"kind\": \"contract\",\n  \"limitation\": \"The trailer is a compiler-written hint, not proof of authorship or safety; a missing trailer is legal (appendCBOR=false, other compilers).\",\n  \"rpc\": \"https://ethereum-rpc.publicnode.com\",\n  \"sourcify\": {\n    \"match\": null,\n    \"status\": \"not_verified_at_provider\"\n  },\n  \"trailer\": {\n    \"compiler\": \"solc\",\n    \"hex\": \"0xa164736f6c634300081a000a\",\n    \"keys\": [\n      \"solc\"\n    ],\n    \"length\": 12,\n    \"metadataHash\": null,\n    \"offset\": 1275,\n    \"version\": \"0.8.26\"\n  }\n}\n",
+      "stderr": "",
+      "seconds": 0.54
     },
     {
       "command": [
@@ -238,16 +335,138 @@
       ],
       "exit": 0,
       "stdout": "{\n  \"address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n  \"chainId\": 1,\n  \"limitation\": \"Provider-reported verification; not an independent bytecode rebuild or safety assessment.\",\n  \"match\": null,\n  \"provider\": \"Sourcify\",\n  \"sourceCount\": 0,\n  \"sources\": {},\n  \"status\": \"unverified\"\n}\n",
+      "stderr": "",
+      "seconds": 0.47
+    }
+  ],
+  "shared": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "shared/check.py"
+      ],
+      "exit": 0,
+      "stdout": "PASS: envelope rejection, unhealthy gate, pinned call, implementation source leads, beacon exclusion, reorganization rejection\n",
       "stderr": ""
     },
     {
       "command": [
         "python3",
         "-B",
-        "line-4/tools/compiler-trailer/trailer.py"
+        "shared/check_agreed.py"
       ],
       "exit": 0,
-      "stdout": "{\n  \"address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n  \"block\": {\n    \"hash\": \"0x2755ff8175f94a2b7b927f1e4312eb48aeb200e62c818b960c79b03e5b6b0b7c\",\n    \"number\": 26136921\n  },\n  \"chainId\": 1,\n  \"codeSha256\": \"7d6c46f53a4441c9b7d4cf3d00ff7b28bd31a84dbc9d18a8ebcce33b1e8b34fb\",\n  \"codeSize\": 1287,\n  \"kind\": \"contract\",\n  \"limitation\": \"The trailer is a compiler-written hint, not proof of authorship or safety; a missing trailer is legal (appendCBOR=false, other compilers).\",\n  \"rpc\": \"https://ethereum-rpc.publicnode.com\",\n  \"sourcify\": {\n    \"match\": null,\n    \"status\": \"not_verified_at_provider\"\n  },\n  \"trailer\": {\n    \"compiler\": \"solc\",\n    \"hex\": \"0xa164736f6c634300081a000a\",\n    \"keys\": [\n      \"solc\"\n    ],\n    \"length\": 12,\n    \"metadataHash\": null,\n    \"offset\": 1275,\n    \"version\": \"0.8.26\"\n  }\n}\n",
+      "stdout": "{\"demo\": \"passed\", \"cases\": {\"normal\": \"agreement\", \"fork\": \"disagreement\", \"lag\": \"lagging\", \"error\": \"inconclusive\", \"wrong-height\": \"inconclusive\", \"stale\": \"inconclusive\", \"wrong-chain\": \"inconclusive\"}, \"invalid_provider_sets_rejected_before_transport\": 7, \"generator_checked_in_both_passes\": true}\nPASS: agreement gate, exact height, both rechecks, drift rejection, revert/RPC/decode outcomes\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "shared/check_named.py"
+      ],
+      "exit": 0,
+      "stdout": "PASS: generator providers, pinned call, named ZTO error, truncated rejection, unknown selector\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "shared/check_source_identity.py"
+      ],
+      "exit": 0,
+      "stdout": "PASS: matching identity, wrong chain, wrong address, missing identity, non-object\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "shared/check_typed.py"
+      ],
+      "exit": 0,
+      "stdout": "PASS: mixed ABI roundtrip, argument bounds, malformed returns, typed selector, pinned call, raw retention, agreement gating\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "shared/check_uups_sources.py"
+      ],
+      "exit": 0,
+      "stdout": "PASS: candidate deduplication, empty-code exclusion, preserved evidence, source failure isolation, no extraction, failed scan stops lookup, absent slots\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "shared.tools.rpc_progress",
+        "--demo"
+      ],
+      "exit": 0,
+      "stdout": "{\"demo\": \"passed\", \"checks\": 13, \"covers\": \"repeats, progress, regressions, hash changes, gaps, stale data, case normalization, sampler integration\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "shared.tools.uups_probe",
+        "--self-test"
+      ],
+      "exit": 0,
+      "stdout": "PASS: modern/legacy UUID, mismatch, malformed ABI, failed call, empty target, absent slots, direct bounded pinned calls, reorg and invalid hex rejection\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "shared.tools.compiler_trailer",
+        "--self-test"
+      ],
+      "exit": 0,
+      "stdout": "PASS: trailer decoding (ZTO none-hash, IMD ipfs CID, USDT bzzr0, Vyper array), base58, malformed rejection\nPASS: Sourcify cross-check agree, version/bytecode disagreement, partial metadata, sparse partial, unverified\nPASS: source identity guard, missing fields, strict chain types, case normalization, requested address, inspect rejection\nPASS: strict JSON-RPC ids, mainnet guard, block-hash pinned read, no proxy discovery, address validation\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "shared.tools.typed_preview",
+        "--demo",
+        "--encode-only"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"method\": \"eth_call\",\n  \"sent\": false,\n  \"block\": \"latest\",\n  \"signature\": \"balanceOf(address)\",\n  \"return_types\": [\n    \"uint256\"\n  ],\n  \"transaction\": {\n    \"to\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n    \"data\": \"0x70a082310000000000000000000000000000000000000000000000000000000000000001\",\n    \"value\": \"0x0\"\n  },\n  \"status\": \"prepared\",\n  \"previewed\": false,\n  \"request\": {\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"eth_call\",\n    \"params\": [\n      {\n        \"to\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n        \"data\": \"0x70a082310000000000000000000000000000000000000000000000000000000000000001\",\n        \"value\": \"0x0\"\n      },\n      \"latest\"\n    ]\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "shared/uups_sources.py"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"uups\": {\n    \"chain_id\": 1,\n    \"address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n    \"block_number\": 26137142,\n    \"block_hash\": \"0x285327d9fc1198225dd7862dcd1979a99c1cc0f5cb4c4d63dbff99cbfb054dd4\",\n    \"code_bytes\": 1287,\n    \"raw_slots\": {\n      \"eip1967\": \"0x0000000000000000000000000000000000000000000000000000000000000000\",\n      \"erc1822_original\": \"0x0000000000000000000000000000000000000000000000000000000000000000\"\n    },\n    \"candidates\": [],\n    \"assessment\": \"no implementation in either recognized slot; no UUID call made\",\n    \"limitations\": \"A UUID response is an untrusted compatibility claim, not proof of dispatch, upgrade authorization, storage-layout safety or future upgradeability. A revert, empty slot or different UUID does not prove immutability. Custom routers, beacon targets and clone chains are not resolved. Calls run directly on candidate implementations, not through the proxy. Provider honesty and block-hash recheck races remain.\"\n  },\n  \"source_reviews\": [\n    {\n      \"address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n      \"lookup\": \"completed\",\n      \"bundle\": {\n        \"chainId\": 1,\n        \"address\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n        \"provider\": \"Sourcify\",\n        \"match\": null,\n        \"status\": \"unverified\",\n        \"sourceCount\": 0,\n        \"sources\": {},\n        \"limitation\": \"Provider-reported verification; not an independent bytecode rebuild or safety assessment.\"\n      }\n    }\n  ],\n  \"sent\": false,\n  \"limitations\": \"Source responses are current provider reports, not pinned to the UUPS block and not independently compiled. A UUID match is an untrusted compatibility claim. Empty slots, absent source, and lookup failures do not prove immutability or safety. No source files are extracted or executed.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "shared/typed_agreed.py"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"status\": \"observed\",\n  \"sent\": false,\n  \"agreement\": {\n    \"status\": \"agreement\",\n    \"observations\": [\n      {\n        \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n        \"status\": \"fresh\",\n        \"chain_id\": 1,\n        \"block_number\": 26137142,\n        \"block_hash\": \"0x285327d9fc1198225dd7862dcd1979a99c1cc0f5cb4c4d63dbff99cbfb054dd4\",\n        \"age_seconds\": 7.49\n      },\n      {\n        \"endpoint\": \"https://eth.drpc.org\",\n        \"status\": \"fresh\",\n        \"chain_id\": 1,\n        \"block_number\": 26137142,\n        \"block_hash\": \"0x285327d9fc1198225dd7862dcd1979a99c1cc0f5cb4c4d63dbff99cbfb054dd4\",\n        \"age_seconds\": 7.49\n      }\n    ],\n    \"common_height\": 26137142,\n    \"head_spread\": 0,\n    \"common_blocks\": [\n      {\n        \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n        \"status\": \"fresh\",\n        \"chain_id\": 1,\n        \"block_number\": 26137142,\n        \"block_hash\": \"0x285327d9fc1198225dd7862dcd1979a99c1cc0f5cb4c4d63dbff99cbfb054dd4\",\n        \"age_seconds\": 7.49\n      },\n      {\n        \"endpoint\": \"https://eth.drpc.org\",\n        \"status\": \"fresh\",\n        \"chain_id\": 1,\n        \"block_number\": 26137142,\n        \"block_hash\": \"0x285327d9fc1198225dd7862dcd1979a99c1cc0f5cb4c4d63dbff99cbfb054dd4\",\n        \"age_seconds\": 7.49\n      }\n    ]\n  },\n  \"preview\": {\n    \"block_number\": 26137142,\n    \"block_hash\": \"0x285327d9fc1198225dd7862dcd1979a99c1cc0f5cb4c4d63dbff99cbfb054dd4\",\n    \"transaction\": {\n      \"to\": \"0xd782bdea4ef02a0bd391eb9089470c8080f0a68e\",\n      \"data\": \"0x70a082310000000000000000000000000000000000000000000000000000000000000001\",\n      \"value\": \"0x0\"\n    },\n    \"endpoint\": \"https://ethereum-rpc.publicnode.com\",\n    \"status\": \"succeeded\",\n    \"return_data\": \"0x0000000000000000000000000000000000000000000000000000000000000000\",\n    \"decoded\": \"0x0000000000000000000000000000000000000000000000000000000000000000\",\n    \"decoded_return\": [\n      \"0\"\n    ]\n  },\n  \"limitations\": \"Provider agreement is not consensus proof. Only the first provider executes eth_call; rechecks cannot eliminate every reorg race. No sender or value overrides; future transactions can differ.\",\n  \"signature\": \"balanceOf(address)\",\n  \"return_types\": [\n    \"uint256\"\n  ]\n}\n",
       "stderr": ""
     }
   ]

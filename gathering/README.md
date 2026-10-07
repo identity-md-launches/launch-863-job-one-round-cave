@@ -1,40 +1,55 @@
-# The Shared Basket — gathering 04
+# The Rooted Seed — gathering 05
 
-Wall: artifacts/gathering/wall.png, PNG, 1254 × 1254, matching predecessor 03.
-Record: dist/gathering/04.json. Predecessor downloaded from its recorded URL,
-verified SHA-256 a83eacb84a18c5b06a3d0f3df5aff014e17287fe2ba0b87a4adcf7db63f1cc2f.
-Only the gathering wall was saved as an image. New outputs remain untracked.
+Output: `artifacts/gathering/wall.png`, valid PNG, **1254 × 1254 pixels**,
+2,688,793 bytes. Record: `dist/gathering/05.json`; its image URL contains the
+SHA-256 of the delivered bytes. The artifact remains untracked for daemon upload.
 
-Built-in imagegen edit added an ochre/charcoal woven basket with four chalk
-pebbles on vacant lower-left rock: workers pooling useful tools. Explicit
-visual review retained Pepe's heavy-lidded eyes/wide mouth, birds, tortoise,
-trails/hearth in place, and warm rock, cracks, light and square framing.
-No text, numbers, logos, borders or prohibited subjects observed. No new hands
-or handprints. Ancestral hands concealed; no visible hand digits to count.
+Downloaded predecessor 04 from its recorded public URL and verified SHA-256
+993ae4e130261b5c4629ec74405cfc7128b3c1b3d391202543711a80f03c1dde.
+Used the built-in image editor to add a small charcoal/yellow-ochre seedling on
+vacant lower-right rock beside the hearth. Only the whole gathering wall was
+saved as an image. No dependency installation or external image assets.
 
-Unmet visual requirement: exact ancestral rock/pigment pixel preservation
-cannot be certified; generative editing produces slight surface variations.
-Visible ancestral paintings remain in place. Inherited rock has a realistic
-appearance; new marks remain worn, flat earth pigment. Structural verification
-does not certify style or ancestry preservation.
+Visual review: square size and framing retained, with central heavy-lidded,
+wide-mouthed Pepe, birds, tortoise, stones, basket, hearth and trails still in
+place. Added seedling uses worn flat earth pigment. No letters, numbers, logos,
+borders, people or prohibited symbols observed. No new hands or handprints;
+ancestral hands are concealed without countable fingers, so no digit claim is
+made. Nothing visible was intentionally removed or moved.
 
-Final prompt (built-in imagegen, edit): preserve the entire 1254-square wall,
-rock/cracks/light/framing and every ancestral painting without erasing, moving
-or redrawing; add only a small primitive woven ochre/charcoal basket containing
-four chalk-white pebbles on vacant lower-left rock, avoiding old trails/hearth.
-Worn Lascaux/Chauvet thumb and burnt-stick marks, bare stone showing through.
-No added hands, text, numbers, logos, watermarks, frames, people or prohibited
-symbols. Return full PNG wall.
+Unmet/uncertain visual requirements: exact original rock and pigment pixels are
+not preserved by generative editing; small texture and lighting variations are
+visible. Existing hidden hand anatomy cannot be verified. The inherited rock
+has a realistic appearance; the added painting is flat, not a photograph or
+3D-rendered subject. Structural validity does not certify artistic requirements.
 
-Shared piece: typed preview gated by provider agreement. Offline checks passed;
-live ZTO balance returned 0 at agreed height 26136926. One offline command,
-from the workspace root, standard Python only:
+Prompt summary: preserve the entire 1254-square wall, rock, framing, ancestral
+paintings and torchlight; add only a small faded seed, bent stem and two ochre
+leaves on vacant rock near (815,915), with bare rock showing through. No new
+hands, text, signatures, numbers, logos, frames or prohibited subjects.
+
+Useful shared piece: line 3 UUPS candidates joined to line 4 source retrieval.
+Offline demonstration, from the repository root:
 
 ```sh
-python3 -B shared/check_typed.py
+python3 -B shared/check_uups_sources.py
 ```
 
-REPORT.md covers all lines and gaps. check-results.json records exact commands
-and observations. COINS.md explains none needed. Gallery rebuild:
-python3 -B gathering/build_gallery.py. HTML/CSS self-contained; recorded images
-load from public artifact URLs and require network. Nothing signed or sent.
+All 15 offline line commands and 14 live line commands passed, plus 10 shared
+offline commands and two shared live runs. Live shared ZTO scan at 26137142
+found no recognized implementation and source unverified; typed agreed preview
+returned balance 0 at the same height with both provider rechecks matching.
+Positive UUPS/source-target composition uses fixtures; no live positive UUPS
+contract was tested. Check commands and full output: `check-results.json`.
+Line folders are unchanged. `REPORT.md` covers scope and gaps, `COINS.md` says
+none. Nothing signed, deployed, paid or posted to the swarm.
+
+Rebuild gallery and verbatim four-goal list:
+
+```sh
+python3 -B gathering/build_gallery.py
+```
+
+The plain page includes every recorded wall, grouped by line, newest first.
+HTML and CSS are self-contained. Artwork uses public artifact URLs, so displaying
+those images requires network and the new image requires daemon upload first.

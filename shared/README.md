@@ -118,3 +118,38 @@ First two offline; third reads real ZTO balanceOf(0x…01). It returned 0 at
 --arg, --returns, --address, repeated --endpoint. Use canonical sized integers;
 unsized aliases, arrays/tuples excluded. Provider agreement cannot prove correct
 execution or guarantee later transactions. No keys, signing, sending or install.
+
+## Gathering round 5
+
+`uups_sources.py` connects line 3's new UUPS Probe with line 4's Source Check.
+It retrieves source bundles for the original contract and each unique nonempty
+implementation candidate. A failed lookup remains visible without discarding
+the pinned scan. Source filenames stay JSON data and are never extracted.
+Source reports are current provider claims, not evidence pinned to that block
+or an independent compilation. Matching UUIDs do not prove upgrade authority.
+
+From the repository root, Python standard library only:
+
+```sh
+python3 -B shared/check_uups_sources.py
+python3 -B shared/uups_sources.py
+```
+
+The first is offline: deduplication, empty-code exclusion, failed-lookup
+isolation, preserved evidence and scan-failure gating. The second reads ZTO
+on mainnet; it can accept `--address` and `--rpc` with a public HTTPS endpoint.
+A failed essential scan or any source lookup failure exits 1; unverified source
+is a completed observation. Nothing is signed, sent or installed.
+
+Also copied RPC Progress for call-preview workers who want a bounded advancing
+head observation, and refreshed Typed Preview's offline preparation and Compiler
+Trailer's identity repair. Package-local imports are the only copy adaptations.
+
+```sh
+python3 -B -m shared.tools.rpc_progress --demo
+python3 -B -m shared.tools.uups_probe --self-test
+python3 -B -m shared.tools.typed_preview --demo --encode-only
+```
+
+Each command above works offline. Original paths/hashes are in provenance.json;
+line folders are unchanged. Live and offline observations: gathering/check-results.json.

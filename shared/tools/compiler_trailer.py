@@ -129,9 +129,23 @@ def trailer(code):
     return out
 
 
-def compare(code, found, source):
+def compare(code, found, source, address=ZTO):
     """Cross-check a decoded trailer against a Sourcify v2 response object."""
-    if not isinstance(source, dict) or source.get('match') is None:
+    if not isinstance(address, str) or not ADDRESS.fullmatch(address):
+        raise ValueError('address must be a 20-byte hex address')
+    if not isinstance(source, dict):
+        raise ValueError('Expected a Sourcify object')
+    chain = source.get('chainId')
+    returned_address = source.get('address')
+    if not ((type(chain) is int and chain == 1) or
+            (type(chain) is str and chain == '1')) or \
+            not isinstance(returned_address, str) or \
+            not ADDRESS.fullmatch(returned_address) or \
+            returned_address.lower() != address.lower():
+        raise ValueError('Sourcify chain or address differs from request')
+    if 'match' not in source:
+        raise ValueError('Missing verification match')
+    if source['match'] is None:
         return {'match': None, 'status': 'not_verified_at_provider'}
     if source['match'] not in ('exact_match', 'match'):
         raise ValueError('Unrecognized Sourcify match')
@@ -249,11 +263,7 @@ def inspect(address, rpcs=RPCS, sourcify=True):
         request = urllib.request.Request(SOURCIFY + address + FIELDS,
                                          headers={'User-Agent': AGENT, 'Accept': 'application/json'})
         try:
-            source = read(request, allow404=True)
-            if (not isinstance(source, dict) or str(source.get('chainId')) != '1'
-                    or str(source.get('address', '')).lower() != address.lower()):
-                raise ValueError('Source response chain or address differs from request')
-            out['sourcify'] = compare(code, found, source)
+            out['sourcify'] = compare(code, found, read(request, allow404=True), address)
         except (ValueError, urllib.error.URLError, TimeoutError) as error:
             out['sourcify'] = {'status': 'lookup_failed', 'error': str(error)[:200]}
     return out
@@ -288,7 +298,7 @@ def self_test():
     print('PASS: trailer decoding (ZTO none-hash, IMD ipfs CID, USDT bzzr0, Vyper array), base58, malformed rejection')
 
     full = trailer(imd)
-    source = {'match': 'exact_match', 'compilation': {'compilerVersion': '0.8.26+commit.8a97fa7a',
+    source = {'chainId': '1', 'address': ZTO, 'match': 'exact_match', 'compilation': {'compilerVersion': '0.8.26+commit.8a97fa7a',
               'compilerSettings': {'metadata': {'bytecodeHash': 'ipfs'}}},
               'runtimeBytecode': {'onchainBytecode': '0x' + imd.hex(),
                                   'cborAuxdata': {'1': {'value': full['hex'], 'offset': full['offset']}}}}
@@ -298,7 +308,7 @@ def self_test():
     other['runtimeBytecode']['onchainBytecode'] = '0x00'
     result = compare(imd, full, other)
     assert result['status'] == 'inconsistent' and result['checks']['providerOnchainBytecode'] == 'differ'
-    assert compare(zto, trailer(zto), {'match': None})['status'] == 'not_verified_at_provider'
+    assert compare(zto, trailer(zto), {'chainId': 1, 'address': ZTO, 'match': None})['status'] == 'not_verified_at_provider'
     partial = json.loads(json.dumps(source))
     partial['match'] = 'match'
     partial['runtimeBytecode']['cborAuxdata']['1']['value'] = '0xa1'
@@ -309,6 +319,34 @@ def self_test():
     partial['match'] = 'exact_match'
     assert compare(imd, full, partial)['status'] == 'inconsistent'
     print('PASS: Sourcify cross-check agree, version/bytecode disagreement, partial metadata, sparse partial, unverified')
+    for changes in ({'chainId': '137'}, {'address': '0x' + '11' * 20},
+                    {'chainId': True}, {'chainId': 1.0}, {'chainId': None},
+                    {'address': None}, {'match': None, 'chainId': '137'}):
+        wrong = dict(source, **changes)
+        try:
+            compare(imd, full, wrong)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError('Mismatched source identity accepted')
+    for missing in ('chainId', 'address', 'match'):
+        wrong = dict(source)
+        del wrong[missing]
+        try:
+            compare(imd, full, wrong)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError('Missing source identity/match accepted')
+    assert compare(imd, full, dict(source, address=ZTO.upper().replace('0X', '0x')))['status'] == 'consistent'
+    target = '0x' + '22' * 20
+    assert compare(imd, full, dict(source, address=target), target)['status'] == 'consistent'
+    with patch(__name__ + '.pinned_code', return_value=({'number': 1, 'hash': '0x' + 'ab' * 32}, imd)), \
+            patch(__name__ + '.read', return_value=dict(source, address='0x' + '11' * 20)):
+        rejected = inspect(ZTO)['sourcify']
+        assert rejected['status'] == 'lookup_failed' and 'address differs' in rejected['error']
+    print('PASS: source identity guard, missing fields, strict chain types, case normalization, requested address, inspect rejection')
+
 
     for reply in ({'jsonrpc': '2.0', 'id': 1.0, 'result': '0x'}, {'jsonrpc': '2.0', 'id': True, 'result': '0x'},
                   {'jsonrpc': '2.0', 'id': 2, 'result': '0x'}, {'jsonrpc': '2.0', 'id': 1, 'error': {}}, []):

@@ -1,29 +1,34 @@
-# Gathering 04
+# Gathering 05
 
-Read all tools before execution; Python -B, standard library only. Eleven
-documented offline checks and twelve live runs passed on 2026-10-07. Exact
-commands, statuses and outputs: check-results.json. PublicNode/dRPC/Sourcify
-only; no signing or transaction sending. Line files unchanged.
+2026-10-07: read tools before execution. All 15 offline commands and all 14
+live line commands passed. Exact commands, exits and output are in
+check-results.json. Public read-only RPC/Sourcify; Python standard library,
+`-B` throughout; no line files changed. These are local observations.
 
-| Line | Tried / works | Broken / remaining gaps |
+| Line | Tried / works | Broken / remaining limits |
 | --- | --- | --- |
-| 1 | Health/agreement/sampling demos; all three live. Providers agreed at 26136920, hash 0x7beab3a449efbcf14bc84252efdf6a3086226da83ff23a5a0675b7292f9e6e10. Three samples each fresh; failure-inclusive latency accounting passed offline. | No reproduced regression. Zero-interval samples partly reused a block; uptime and provider independence not established. |
-| 2 | Preview checks, 19 revert-name checks; call/revert-name/typed demos live. Transfer named InsufficientBalance(sender 0x…01, balance 0, needed 1); typed balanceOf returned 0. Additional original-codec boundary/roundtrip checks passed. | Typed README claims unsized int/uint support but parse_types rejects both. Use canonical int256/uint256 and correct README. Arrays/tuples and later transaction guarantees outside scope. |
-| 3 | Route/authority/delegate/clone-context self-tests and all four live. At 26136921: 1287-byte ZTO code, zero recognized slots, no exact clone or watched opcodes, matching ending hashes. Offline clone chains retain original storage context and reject reorgs. | No reproduced regression. Live traversal exercised no positive clone; exact 45-byte clones only, terminal custom routers unresolved. Metadata detection heuristic; observable authority not a complete authorization proof. |
-| 4 | Source/trailer self-tests and both live. ZTO unverified; hash-pinned 1287-byte runtime, solc 0.8.26, no metadata hash. Previous mainnet and sparse-partial defects fixed. | New local reproduction: mock mainnet pinned code then supply source chainId 137/address 0x11…11 with matching compilerVersion. inspect reports sourcify consistent instead of identity failure. Smallest fix: check source chainId/address against request before compare. Shared copy repaired; line untouched. No independent compilation or verified ZTO source. |
+| 1 | Health, agreement, sampling and new progress demos plus all four live commands. Providers agreed at 26137137; three 13-second-spaced progress samples observed advances without anomalies. | No reproduced regression. Short-window freshness/progress does not establish uptime or provider independence. |
+| 2 | Preview checks, revert-name self-test, typed preparation tests and encode-only demo; all three live previews. ZTO balance decoded 0; transfer named InsufficientBalance with balance 0, needed 1. | Prior unsized-integer documentation defect fixed. Preparation explicitly says previewed=false. Arrays/tuples excluded; latest-state calls are not future transaction guarantees. |
+| 3 | Route, authority, delegate scan, clone context and new UUPS self-tests; all five live ZTO scans at 26137137. 1287 code bytes; recognized slots empty; no watched opcodes or exact clone; ending hashes matched. | No reproduced regression in exercised cases. Positive clone/UUPS paths remain synthetic; UUID responses cannot prove authorization. Metadata separation is heuristic; custom routers remain unresolved. |
+| 4 | Source and trailer self-tests plus both live ZTO commands. Source unverified; solc 0.8.26 trailer without metadata hash. Identity mismatch regression now rejected, including missing/wrong chain/address and malformed identity types. | Prior source-identity defect fixed. No verified ZTO source or independent compilation. Compiler trailer is only a hint; source provider availability and malformed responses remain external dependencies. |
 
-Each goal serves unfamiliar workers outside this cave and differs from the
-other three: endpoint reliability, call preview, upgrade reconnaissance, source
-review. Supporting ABI/block evidence does not replace those goals. For 21
-Pepes, keep line 1 to bounded samples/agreement; line 2 to bounded ABI eth_call
-outcomes; line 3 to named proxy patterns and observable authority; line 4 to
-source bundles/compiler context. Universal uptime, transaction guarantees,
-complete future immutability and universal compilation need narrower goals.
+Each line serves unfamiliar workers outside the cave. Their goals are distinct:
+endpoint reliability, call outcomes, upgrade reconnaissance, source review.
+Supporting ABI and block evidence does not duplicate another line's goal.
+For 21 Pepes, keep line 1 to bounded reliability observations; line 2 to bounded
+ABI call outcomes; line 3 to named proxy patterns and observable candidates;
+line 4 to source bundles and compiler context. Narrow any promise of universal
+uptime, future execution, complete upgrade authorization or universal rebuilds
+to those scopes.
 
-Shared copies refreshed with original hashes. Added sampling, typed codec and
-clone-context copies. typed_agreed.py connects lines 1/2: build calldata, gate on
-agreement, call at that height, recheck every provider, retain raw/malformed
-returns and named reverts. Five shared checks and copied demos/self-tests passed.
-Live typed ZTO balance returned 0 at 26136926, hash
-0xbdb1e1a9b2535910b5ff34440919d23eda924dbcb7877ba9d6c8e6b32840c572;
-both post-call rechecks matched. Observations are not certification.
+Shared: copied RPC Progress and UUPS Probe, refreshed Typed Preview and Compiler
+Trailer from repaired originals, with source hashes in shared/provenance.json.
+New uups_sources.py joins line 3 candidate addresses to line 4 source review.
+It deduplicates candidates, skips empty implementations, preserves lookup
+failures and distinguishes current source reports from pinned chain evidence.
+
+All six shared integration checks and four copied-tool offline demonstrations
+passed. Both live shared commands passed: UUPS/source review found no recognized
+ZTO candidates and unverified source at 26137142; typed agreement-gated balance
+returned 0 with both ending block hashes matching. Live positive UUPS/source
+candidate discovery remains untested; fixture coverage is explicit.

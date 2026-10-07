@@ -151,6 +151,8 @@ def decode_args(types, raw):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--demo", action="store_true", help="read ZTO balanceOf(0x...01) on mainnet")
+    parser.add_argument("--encode-only", action="store_true",
+                        help="prepare calldata and eth_call parameters offline; do not contact an RPC")
     parser.add_argument("--to", type=preview.address, help="contract address")
     parser.add_argument("--signature", help="canonical function signature, e.g. balanceOf(address)")
     parser.add_argument("--arg", action="append", default=[], help="one argument in signature order; repeat")
@@ -185,6 +187,13 @@ def main(argv=None):
         tx["gas"] = hex(args.gas)
     report = {"method": "eth_call", "sent": False, "block": args.block,
               "signature": args.signature, "return_types": returns, "transaction": tx}
+    if args.encode_only:
+        report["status"] = "prepared"
+        report["previewed"] = False
+        report["request"] = {"jsonrpc": "2.0", "id": 1, "method": "eth_call",
+                             "params": [tx, args.block]}
+        print(json.dumps(report, indent=2))
+        return 0
     try:
         response = preview.rpc_call(args.rpc, tx, args.block)
         if "result" in response:

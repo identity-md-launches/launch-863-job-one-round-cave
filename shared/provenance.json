@@ -48,21 +48,9 @@
     "adaptation": "none"
   },
   {
-    "source": "line-4/tools/compiler-trailer/trailer.py",
-    "sha256": "33b5542b14e837a93673c43493f14f480919b01cbcaf75cc96f64fcb887b1269",
-    "shared": "shared/tools/compiler_trailer.py",
-    "adaptation": "source-response chain/address validation before comparison"
-  },
-  {
     "source": "line-1/tools/rpc-sampling/sample.py",
     "sha256": "86b9fd195b7187761e6e68bae1f101d4ad093f5a64fe6f09905ca957652fe9fe",
     "shared": "shared/tools/rpc_sampling.py",
-    "adaptation": "package-local import only"
-  },
-  {
-    "source": "line-2/tools/typed_preview/typed_preview.py",
-    "sha256": "093306ad9f88ed7cdfd9ae9b994627b32024597b40a5372933931d287b4eda70",
-    "shared": "shared/tools/typed_preview.py",
     "adaptation": "package-local import only"
   },
   {
@@ -70,5 +58,29 @@
     "sha256": "6979e49ed68924b15323ddca36a74bfa858563f84cdb94e84b7af3e39b56d0c5",
     "shared": "shared/tools/clone_context.py",
     "adaptation": "package-local import only"
+  },
+  {
+    "source": "line-1/tools/rpc-progress/progress.py",
+    "sha256": "1df3e0cdc54530fe88b9965d334c61033ad4b8b288bec06660af572b291c8467",
+    "shared": "shared/tools/rpc_progress.py",
+    "adaptation": "package-local import only"
+  },
+  {
+    "source": "line-3/tools/uups-probe/uups_probe.py",
+    "sha256": "e1ab3742df8c423fdb668d1c20d8217e91462ce027ed543fdf2eddeccfd24973",
+    "shared": "shared/tools/uups_probe.py",
+    "adaptation": "package-local import only"
+  },
+  {
+    "source": "line-2/tools/typed_preview/typed_preview.py",
+    "sha256": "2eea7a1aac52fc28f43ad81740907a4fb3cd99b36ca487ecb4907d7adbab848a",
+    "shared": "shared/tools/typed_preview.py",
+    "adaptation": "package-local import only"
+  },
+  {
+    "source": "line-4/tools/compiler-trailer/trailer.py",
+    "sha256": "3f0c9e915276105ac0df27f7781ae2f8e9740587e2da5f8a9d3b73aaabaf78ee",
+    "shared": "shared/tools/compiler_trailer.py",
+    "adaptation": "none"
   }
 ]
